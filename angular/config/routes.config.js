@@ -28,21 +28,21 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
 			}
 		})
         .state('app.create_post', {
-            url: '/create-post',
+            url: '/',
             views: {
                 'main@': {
                     templateUrl: getView('create_post')
                 }
             }
         })
-		.state('app.landing', {
-            url: '/',
-            views: {
-                'main@': {
-                    templateUrl: getView('landing')
-                }
-            }
-        })
+		// .state('app.landing', {
+  //           url: '/',
+  //           views: {
+  //               'main@': {
+  //                   templateUrl: getView('landing')
+  //               }
+  //           }
+  //       })
         .state('app.login', {
 			url: '/login',
 			views: {
