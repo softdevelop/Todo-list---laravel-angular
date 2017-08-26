@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<form ng-submit="vm.submit()" id="formToDo">
+
+	<!-- <md-input-container>
+		<label>Name</label>
+		<input type="text" ng-model="vm.name">
+	</md-input-container>
+
+	<div >
+		
+	</div>
+
+	<md-button type="submit" class="md-primary md-raised" >Add</md-button> -->
+
+
+	<div id="myDIV" class="header">
+		<h2>My To Do List</h2>
+		<input type="text" id="myInput" ng-model="vm.name" placeholder="">
+		<button class="addBtn">Add</button>
+	</div>
+	<ul id="myUL">
+		<li class="item" ng-repeat="obj in vm.list | orderBy : '-id' " id="item{{obj.id}}">
+			<input ng-show="obj.active == 0" type="checkbox" name="item" ng-click="vm.checkbox(obj.id)" style="border: 1px solid #ccc; border-radius: 0;">
+			<input ng-show="obj.active !=0" type="checkbox" name="item" ng-click="vm.checkbox(obj.id)" checked style="border: 1px solid #ccc; border-radius: 0;">
+			<span ng-show="obj.active == 0" style="padding-left: 10px;">{{obj.name}}</span>
+			<span ng-show="obj.active !=0" style="padding-left: 10px; text-decoration: line-through;">{{obj.name}}</span>
+			<a ng-click="vm.delete(obj.id)" class="full-right" style="float: right; color: #333;"><i class="glyphicon glyphicon-remove"></i></a>
+		</li>
+	</ul>
+
+</form>
+
+
+
+
+
