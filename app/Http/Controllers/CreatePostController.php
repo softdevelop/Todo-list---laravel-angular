@@ -15,18 +15,16 @@ class CreatePostController extends Controller
 		]);
 
 		$post = new ToDoListModel;
+
 		$post->name = $request->input('name');
-		// dd($post->name);
+		$post->active = 0;
 		$post->save();
 
-		return response()->success(compact('post'));
+		return response()->success(compact('add'));
 	}
 
 	public function list(){
-		// dd('get-list');
 		$listToDo = ToDoListModel::all();
-
-		// dd($listToDo);
 
 		return response()->success(['data'=>$listToDo]);
 	}
@@ -37,8 +35,6 @@ class CreatePostController extends Controller
 		$obj = ToDoListModel::find($id);
 		$obj->delete();
 
-		// $obj->delete();
-		// return response()->success(compact('deleted'));
 		$this->list();
 	}
 
@@ -52,7 +48,6 @@ class CreatePostController extends Controller
 		}
 		$obj->save();
 		
-		// return response()->success(compact('checked'));
 		$this->list();
 	}
 
